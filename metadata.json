@@ -1,12 +1,12 @@
 {
-  "name": "puppetlabs-docker",
+  "name": "mvasilenko-docker",
   "version": "3.1.0",
   "author": "Puppet Labs",
   "summary": "Module for installing and managing docker",
   "license": "Apache-2.0",
-  "source": "https://github.com/puppetlabs/puppetlabs-docker.git",
-  "project_page": "https://github.com/puppetlabs/puppetlabs-docker",
-  "issues_url": "https://github.com/puppetlabs/puppetlabs-docker/issues",
+  "source": "https://github.com/mvasilenko/puppetlabs-docker.git",
+  "project_page": "https://github.com/mvasilenko/puppetlabs-docker",
+  "issues_url": "https://github.com/mvasilenko/puppetlabs-docker/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",

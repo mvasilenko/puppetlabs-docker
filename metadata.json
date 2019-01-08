@@ -1,6 +1,6 @@
 {
   "name": "mvasilenko-docker",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "author": "Puppet Labs",
   "summary": "Module for installing and managing docker",
   "license": "Apache-2.0",

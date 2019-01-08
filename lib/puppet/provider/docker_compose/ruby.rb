@@ -95,8 +95,10 @@ Puppet::Type.type(:docker_compose).provide(:ruby) do
     Puppet.info("Rebuilding and Restarting all containers for compose project #{name}")
     kill_args = [compose_files, '-p', name, 'kill', '-s', 'SIGTERM'].insert(2, resource[:options]).compact
     dockercompose(kill_args)
-    build_args = [compose_files, '-p', name, 'build'].insert(2, resource[:options]).compact
-    dockercompose(build_args)
+    rm_args = [compose_files, '-p', name, 'rm', '--force', '-v'].insert(2, resource[:options]).compact
+    dockercompose(rm_args)
+    args = [compose_files, '-p', name, 'up', '-d', '--remove-orphans'].insert(3, resource[:options]).insert(5, resource[:up_args]).compact
+    dockercompose(args)
     create
   end
 

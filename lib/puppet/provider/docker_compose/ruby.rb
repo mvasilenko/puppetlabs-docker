@@ -99,7 +99,6 @@ Puppet::Type.type(:docker_compose).provide(:ruby) do
     dockercompose(rm_args)
     args = [compose_files, '-p', name, 'up', '-d', '--remove-orphans'].insert(3, resource[:options]).insert(5, resource[:up_args]).compact
     dockercompose(args)
-    create
   end
 
   def compose_files

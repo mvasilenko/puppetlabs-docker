@@ -73,7 +73,7 @@ Puppet::Type.type(:docker_compose).provide(:ruby) do
 
   def create
     Puppet.info("Running compose project #{name}")
-    args = [compose_files, '-p', name, 'up', '-d', '--remove-orphans'].insert(3, resource[:options]).insert(5, resource[:up_args]).compact
+    args = [compose_files, '-p', name, 'up', '-d'].insert(3, resource[:options]).insert(5, resource[:up_args]).compact
     dockercompose(args)
     return unless resource[:scale]
     instructions = resource[:scale].map { |k, v| "#{k}=#{v}" }
@@ -97,8 +97,9 @@ Puppet::Type.type(:docker_compose).provide(:ruby) do
     dockercompose(kill_args)
     rm_args = [compose_files, '-p', name, 'rm', '--force', '-v'].insert(2, resource[:options]).compact
     dockercompose(rm_args)
-    args = [compose_files, '-p', name, 'up', '-d', '--remove-orphans'].insert(3, resource[:options]).insert(5, resource[:up_args]).compact
+    args = [compose_files, '-p', name, 'up', '-d'].insert(3, resource[:options]).insert(5, resource[:up_args]).compact
     dockercompose(args)
+    sleep(5)
   end
 
   def compose_files
